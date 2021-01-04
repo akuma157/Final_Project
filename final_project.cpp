@@ -9,7 +9,7 @@ Department: Computer Engineering
 #include<string> // string library
 
 using namespace std; // standard line analyze
-ofstream myFile; // to output from the program to the file
+ofstream ContactsFile; // to output from the program to the file
 
 class Node{ // A linked list node
 	public:
@@ -76,7 +76,7 @@ printList(Node *node) // This function prints contents of linked list starting f
 {
     while (node!=NULL)
     {
-        myFile<<node->data<<"\t"; // adds the data directly to the file
+        ContactsFile<<node->data<<"\t"; // adds the data directly to the file
         node=node->next;
     }
 }
@@ -120,15 +120,15 @@ void delete_line(const char *file_name, int n)
 main() // the main function
 {	// Start with the empty list
 	Node* head = NULL; // defining the linked list in this scope
-	myFile.open("Contacts.csv"); // creating the csv file
+	ContactsFile.open("Contacts.csv"); // creating the csv file
 	// printing the header into the first row the csv file 
-	myFile<<"No.\tName\tGiven Name\tAdditional Name\tFamily Name\tYomi Name\tGiven Name Yomi\tAdditional Name Yomi\tFamily Name Yomi\tName Prefix\tName Suffix\tInitials\tNickname\tShort Name\tMaiden Name\tBirthday\tGender\tLocation\tBilling Information\tDirectory Server\tMileage\tOccupation\tHobby\tSensitivity\tPriority\tSubject\tNotes\tLanguage\tGroup Membership\tE-mail 1 - Type\tE-mail 1 - Value\tE-mail 2 - Type\tE-mail 2 - Value\tPhone 1 - Type\tPhone 1 - Value\tPhone 2 - Type\tPhone 2 - Value\tPhone 3 - Type\tPhone 3 - Value\tPhone 4 - Type\tPhone 4 - Value\tOrganization 1 - Type\tOrganization 1 - Name\tOrganization 1 - Yomi Name\tOrganization 1 - Title\tOrganization 1 - Department\tOrganization 1 - Symbol\tOrganization 1 - Location\tOrganization 1 - Job Description\tWebsite 1 - Type\tWebsite 1 - Value"<<endl;
+	ContactsFile<<"No.\tName\tGiven Name\tAdditional Name\tFamily Name\tYomi Name\tGiven Name Yomi\tAdditional Name Yomi\tFamily Name Yomi\tName Prefix\tName Suffix\tInitials\tNickname\tShort Name\tMaiden Name\tBirthday\tGender\tLocation\tBilling Information\tDirectory Server\tMileage\tOccupation\tHobby\tSensitivity\tPriority\tSubject\tNotes\tLanguage\tGroup Membership\tE-mail 1 - Type\tE-mail 1 - Value\tE-mail 2 - Type\tE-mail 2 - Value\tPhone 1 - Type\tPhone 1 - Value\tPhone 2 - Type\tPhone 2 - Value\tPhone 3 - Type\tPhone 3 - Value\tPhone 4 - Type\tPhone 4 - Value\tOrganization 1 - Type\tOrganization 1 - Name\tOrganization 1 - Yomi Name\tOrganization 1 - Title\tOrganization 1 - Department\tOrganization 1 - Symbol\tOrganization 1 - Location\tOrganization 1 - Job Description\tWebsite 1 - Type\tWebsite 1 - Value"<<endl;
 	string a, con, con2; // the linked list element n, the condition strings con and con2
 	int n; // the line number integer
 	
 	for(int i=1;i>=1;i++) // for loop to add the contact's content
 	{
-		myFile<<i<<"\t"; // printing i as a contact number into the file
+		ContactsFile<<i<<"\t"; // printing i as a contact number into the file
 		cout<<"Contact No."<<i<<endl; // showing the contact number
 		
 		// inserting the contact's content using getline for the string a
@@ -184,7 +184,7 @@ main() // the main function
 		cout<<"Website 1 - Type: ";getline(cin, a);append(&head, a);printList(head);deleteNode(&head, a);
 		cout<<"Website 1 - Value: ";getline(cin, a);append(&head, a);printList(head);deleteNode(&head, a);
 		
-		myFile<<endl; // print new line into the file
+		ContactsFile<<endl; // print new line into the file
 		cout<<"\n--------------------------------\n";
 		cout<<"Do you want to add another contact? (y/n) ";cin>>con; // enter "y" to continue or "n" to exit
 		if (con=="n")
@@ -193,7 +193,7 @@ main() // the main function
 		getline(cin, a);
 	}
 	
-	myFile.close(); // closing the file minimize the memory usage
+	ContactsFile.close(); // closing the file minimize the memory usage
 	
 	for(int ii=1;ii>=1;ii++) // for loop to control the delete operation
 	{
