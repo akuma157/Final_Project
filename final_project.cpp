@@ -3,7 +3,8 @@ My Name: Ahmed Khalid Abdelrahman Hassan
 Class: Second Year
 Department: Computer Engineering
 */
-#include<bits/stdc++.h>
+
+#include<iostream> // input and output library
 #include<fstream> // file management library
 #include<string> // string library
 
